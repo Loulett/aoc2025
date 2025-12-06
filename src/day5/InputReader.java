@@ -8,7 +8,7 @@ import java.util.List;
 
 public class InputReader {
     public static Input parseFile(Path path) throws IOException {
-        List<IntPair> pairs = new ArrayList<>();
+        List<LongPair> pairs = new ArrayList<>();
         List<Long> goods = new ArrayList<>();
         boolean finishedPairs = false;
         for (var line: Files.readAllLines(path)) {
@@ -18,8 +18,8 @@ public class InputReader {
             }
             if (!finishedPairs) {
                 var substrings = line.split("-", 2);
-                pairs.add(new IntPair(Long.parseLong(substrings[0]), 1));
-                pairs.add(new IntPair(Long.parseLong(substrings[1]), 2));
+                pairs.add(new LongPair(Long.parseLong(substrings[0]), 1));
+                pairs.add(new LongPair(Long.parseLong(substrings[1]), 2));
             } else {
                 goods.add(Long.parseLong(line));
             }
